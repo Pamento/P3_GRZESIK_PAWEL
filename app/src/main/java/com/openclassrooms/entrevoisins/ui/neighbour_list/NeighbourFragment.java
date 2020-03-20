@@ -37,9 +37,6 @@ public class NeighbourFragment extends Fragment implements MyNeighbourRecyclerVi
      * @return @{@link NeighbourFragment}
      */
     public static NeighbourFragment newInstance() {
-// return new NeighbourFragment();
-// return new NeighbourFragment();
-// return new NeighbourFragment();
         NeighbourFragment fragment = new NeighbourFragment();
         return fragment;
     }
@@ -100,7 +97,7 @@ public class NeighbourFragment extends Fragment implements MyNeighbourRecyclerVi
     @Override
     public void OnNeighbourClick(int position) {
         Log.d(TAG, "OnNeighbourClick: "+mNeighbours.get(position).getName());
-        //Intent intent = new Intent(this, DetailNeighbourActivity.class);
+        //Intent intent = new Intent(getActivity(), DetailNeighbourActivity.class);
         //startActivity(intent);
     }
 }
