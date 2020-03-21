@@ -86,11 +86,11 @@ public class AddNeighbourActivity extends AppCompatActivity {
     void addNeighbour() {
         Neighbour neighbour = new Neighbour(
                 System.currentTimeMillis(),
-                nameInput.getEditText().getText().toString(),
+                Objects.requireNonNull(nameInput.getEditText()).getText().toString(),
                 mNeighbourImage,
-                addressInput.getEditText().getText().toString(),
-                phoneInput.getEditText().getText().toString(),
-                aboutMeInput.getEditText().getText().toString(),
+                Objects.requireNonNull(addressInput.getEditText()).getText().toString(),
+                Objects.requireNonNull(phoneInput.getEditText()).getText().toString(),
+                Objects.requireNonNull(aboutMeInput.getEditText()).getText().toString(),
                 isFavorite = false
         );
         mApiService.createNeighbour(neighbour);
@@ -107,7 +107,7 @@ public class AddNeighbourActivity extends AppCompatActivity {
 
     /**
      * Used to navigate to this activity
-     * @param activity
+     * @param activity is the current activity fragment
      */
     public static void navigate(FragmentActivity activity) {
         Intent intent = new Intent(activity, AddNeighbourActivity.class);

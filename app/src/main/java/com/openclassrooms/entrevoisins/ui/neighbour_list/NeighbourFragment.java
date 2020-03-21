@@ -1,6 +1,7 @@
 package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -122,7 +123,7 @@ public class NeighbourFragment extends Fragment implements MyNeighbourRecyclerVi
     @Override
     public void OnNeighbourClick(int position) {
         Log.d(TAG, "OnNeighbourClick: " + mNeighbours.get(position).getName());
-        //Intent intent = new Intent(getActivity(), DetailNeighbourActivity.class);
-        //startActivity(intent);
+        Intent intent = new Intent(getActivity(), AboutSingleNeighbourActivity.class);
+        startActivity(intent);
     }
 }
