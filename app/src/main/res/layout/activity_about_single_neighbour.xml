@@ -76,7 +76,6 @@
                         android:id="@+id/ab_neighbour_coordinate_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/app_name"
                         android:textColor="@color/colorDarkGray"
                         android:textSize="32sp"
                         android:paddingVertical="8dp"
@@ -92,30 +91,27 @@
                         android:id="@+id/ab_neighbour_coordinate_adr"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/app_name"
                         android:drawableStart="@drawable/ic_location_on_pink_24dp"
                         android:drawablePadding="10dp"
-                        android:textSize="20sp"
-                        android:padding="16dp"/>
+                        android:textSize="18sp"
+                        android:layout_margin="@dimen/text_margin"/>
                     <TextView
                         android:id="@+id/ab_neighbour_coordinate_phone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/app_name"
                         android:drawableStart="@drawable/ic_phone_pink_24dp"
                         android:drawablePadding="10dp"
-                        android:textSize="20sp"
-                        android:padding="16dp"/>
+                        android:textSize="18sp"
+                        android:layout_margin="@dimen/text_margin"/>
 
                     <TextView
                         android:id="@+id/ab_neighbour_coordinate_web"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/app_name"
                         android:drawableStart="@drawable/ic_web_link_pink_24dp"
                         android:drawablePadding="10dp"
-                        android:textSize="20sp"
-                        android:padding="16dp"/>
+                        android:textSize="18sp"
+                        android:layout_margin="@dimen/text_margin"/>
                 </LinearLayout>
             </android.support.v7.widget.CardView>
 
@@ -146,7 +142,7 @@
                         android:textColor="@color/colorDarkGray"
                         android:textSize="32sp"
                         android:paddingVertical="8dp"
-                        android:paddingStart="16dp"/>
+                        android:paddingStart="@dimen/text_margin"/>
 
                     <View
                         android:id="@+id/divider2"
@@ -158,10 +154,8 @@
                         android:id="@+id/ab_neighbour_about_descript"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="20sp"
-                        android:text="@string/app_name"
-                        android:paddingVertical="8dp"
-                        android:paddingStart="16dp" />
+                        android:textSize="18sp"
+                        android:layout_margin="@dimen/text_margin" />
                 </LinearLayout>
             </android.support.v7.widget.CardView>
         </LinearLayout>
