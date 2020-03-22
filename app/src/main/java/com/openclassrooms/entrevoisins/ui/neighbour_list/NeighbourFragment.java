@@ -33,6 +33,7 @@ public class NeighbourFragment extends Fragment implements MyNeighbourRecyclerVi
     private NeighbourApiService mApiService;
     private List<Neighbour> mNeighbours;
     private RecyclerView mRecyclerView;
+    private static final String EXTRA_NEIGHBOUR = "com.openclassrooms.entrevoisins.ui.neighbour_list.EXTRA_NEIGHBOUR";
     private static final String KEY_POSITION = "position";
     private static final String TAG = "___###___NeighbourFrag";
 
@@ -124,6 +125,7 @@ public class NeighbourFragment extends Fragment implements MyNeighbourRecyclerVi
     public void OnNeighbourClick(int position) {
         Log.d(TAG, "OnNeighbourClick: " + mNeighbours.get(position).getName());
         Intent intent = new Intent(getActivity(), AboutSingleNeighbourActivity.class);
+        intent.putExtra(EXTRA_NEIGHBOUR, position);
         startActivity(intent);
     }
 }

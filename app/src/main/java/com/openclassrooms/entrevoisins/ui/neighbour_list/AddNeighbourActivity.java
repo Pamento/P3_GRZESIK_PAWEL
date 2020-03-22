@@ -39,7 +39,6 @@ public class AddNeighbourActivity extends AppCompatActivity {
     TextInputLayout aboutMeInput;
     @BindView(R.id.create)
     MaterialButton addButton;
-    boolean isFavorite;
 
     private NeighbourApiService mApiService;
     private String mNeighbourImage;
@@ -69,7 +68,7 @@ public class AddNeighbourActivity extends AppCompatActivity {
         mNeighbourImage = randomImage();
         Glide.with(this).load(mNeighbourImage).placeholder(R.drawable.ic_account)
                 .apply(RequestOptions.circleCropTransform()).into(avatar);
-        nameInput.getEditText().addTextChangedListener(new TextWatcher() {
+        Objects.requireNonNull(nameInput.getEditText()).addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
             @Override
@@ -84,6 +83,7 @@ public class AddNeighbourActivity extends AppCompatActivity {
 
     @OnClick(R.id.create)
     void addNeighbour() {
+        boolean isFavorite;
         Neighbour neighbour = new Neighbour(
                 System.currentTimeMillis(),
                 Objects.requireNonNull(nameInput.getEditText()).getText().toString(),
