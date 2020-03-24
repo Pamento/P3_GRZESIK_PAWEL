@@ -34,8 +34,6 @@ public class NeighbourFragment extends Fragment implements MyNeighbourRecyclerVi
     private List<Neighbour> mNeighbours;
     private RecyclerView mRecyclerView;
     private static final String KEY_POSITION = "position";
-    private static final String TAG = "___###___NeighbourFrag";
-
 
     /**
      * Create and return a new instance
@@ -67,35 +65,50 @@ public class NeighbourFragment extends Fragment implements MyNeighbourRecyclerVi
         mRecyclerView.addItemDecoration(new DividerItemDecoration(Objects.requireNonNull(getContext()), DividerItemDecoration.VERTICAL));
 
         int position = Objects.requireNonNull(getArguments()).getInt(KEY_POSITION, 0);
-        if (position == 0) {
-            mNeighbours = mApiService.getNeighbours();
-        } else {
-            mNeighbours = getFavoritesNeighboursList(mApiService.getNeighbours());
-        }
+        initList(position);
         return view;
     }
 
     /**
      * Init the List of neighbours
+     * and Refresh in case of change like Delete action.
      */
     @RequiresApi(api = Build.VERSION_CODES.N)
-    private void initList() {
-
-        mRecyclerView.setAdapter(new MyNeighbourRecyclerViewAdapter(mNeighbours, this));
+    private void initList(int position) {
+        if (position == 0) {
+            mNeighbours = mApiService.getNeighbours();
+            mRecyclerView.setAdapter(new MyNeighbourRecyclerViewAdapter(mNeighbours, this));
+        } else {
+            mNeighbours = getFavoritesNeighboursList(mApiService.getNeighbours());
+            mRecyclerView.setAdapter(new MyNeighbourRecyclerViewAdapter(mNeighbours, this));
+        }
     }
 
-    /** @function getFavoritesNeighboursList filter the Neighbours global list by favorites */
+    /**
+     * The function: getFavoritesNeighboursList filter the Neighbours global list by favorites.
+     */
     @RequiresApi(api = Build.VERSION_CODES.N)
     private List<Neighbour> getFavoritesNeighboursList(List<Neighbour> neighbours) {
         return neighbours.stream()
                 .filter(Neighbour::isFavorite).collect(Collectors.toList());
     }
 
+    /**
+     * It's the getter of number of page in ViewPager for make update of List after receive the change.
+     * Added to page in during instantiation of fragment.
+     * @return integer, the number of page.
+     */
+    private int getPageFromPager() {
+        NeighbourFragment nf = this;
+        return (Integer) nf.getArguments().get(KEY_POSITION);
+    }
+
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public void onResume() {
         super.onResume();
-        initList();
+        int pos = getPageFromPager();
+        initList(pos);
     }
 
     @Override
@@ -117,15 +130,18 @@ public class NeighbourFragment extends Fragment implements MyNeighbourRecyclerVi
     @Subscribe
     public void onDeleteNeighbour(DeleteNeighbourEvent event) {
         mApiService.deleteNeighbour(event.neighbour);
-        initList();
+        int pos = getPageFromPager();
+        initList(pos);
     }
 
+    /** Add the ClickListener event on each single Neighbour view in RecyclerView for both list
+     * global and favorites
+     * @param position give the position in the NeighboursList RecyclerView
+     */
     @Override
     public void OnNeighbourClick(int position) {
-        Log.d(TAG, "OnNeighbourClick: " + mNeighbours.get(position).getName()+" __________position___ "+position);
         Intent intent = new Intent(getActivity(), AboutSingleNeighbourActivity.class);
-        //intent.putExtra(AboutSingleNeighbourActivity.EXTRA_NEIGHBOUR, mNeighbours.get(position).getName());
-        intent.putExtra(AboutSingleNeighbourActivity.EXTRA_NEIGHBOUR,mNeighbours.get(position).getName());
+        intent.putExtra(AboutSingleNeighbourActivity.EXTRA_NEIGHBOUR, mNeighbours.get(position).getName());
         startActivity(intent);
     }
 }

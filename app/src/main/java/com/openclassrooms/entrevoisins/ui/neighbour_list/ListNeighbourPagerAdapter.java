@@ -3,14 +3,12 @@ package com.openclassrooms.entrevoisins.ui.neighbour_list;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.util.Log;
 
 
 public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
 
 
-    private static final String TAG = "___###___";
-    public ListNeighbourPagerAdapter(FragmentManager fm) {
+    ListNeighbourPagerAdapter(FragmentManager fm) {
         super(fm);
     }
 
@@ -21,7 +19,6 @@ public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
      */
     @Override
     public Fragment getItem(int position) {
-        Log.d(TAG, "getItem: "+position);
         if (position == 0) return NeighbourFragment.newInstance(position);
         else return NeighbourFragment.newInstance(position);
     }
@@ -34,4 +31,16 @@ public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
     public int getCount() {
         return 2;
     }
+
+//    @Override
+//    public void notifyDataSetChanged() {
+//        super.notifyDataSetChanged();
+//    }
+//
+//    @Override
+//    public int getItemPosition(@NonNull Object object) {
+//        Log.d(TAG, "getItemPosition: ");
+//        //return super.getItemPosition(object);
+//        return POSITION_NONE;
+//    }
 }

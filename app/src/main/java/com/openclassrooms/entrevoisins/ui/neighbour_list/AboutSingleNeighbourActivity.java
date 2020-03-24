@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.di.DI;
 import com.openclassrooms.entrevoisins.model.Neighbour;
@@ -66,8 +65,6 @@ public class AboutSingleNeighbourActivity extends AppCompatActivity implements V
         for (Neighbour n : neighbours) {
             if(n.getName().equals(mNeighbourName)) mNeighbour = n;
         }
-        //mNeighbour = neighbours.get(getNeighbour);
-        //mNeighbourName = mNeighbour.getName();
 
         mCardView1.setRadius(12);
         mCardView2.setRadius(12);
