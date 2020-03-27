@@ -12,7 +12,7 @@ This project was generated with :
 
 You can get it by clone it, or by downloading the zip file,
 like we can see this proposition in the page of GitHub repository:
----
+
 ![Fig.1](app/src/main/assets/clone_repo.jpg)
 ---
 ### 1. ... by cloning the repository from [**GitHub**](https://github.com/)
