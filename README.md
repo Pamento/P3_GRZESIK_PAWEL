@@ -43,9 +43,20 @@ By click on File->Open You can get the project form folder created in previous a
 ___
 
 
+## Build project
+
+At the moment when You want to see effects of Your work in simulation,
+first(optionally) You build the project by clicking like we see on the image below.
+This action can be optionally because You can run directly the app like show in next step.
+When You click 'run', and project not was build before, it will be build automatically before run. 
+
+![Fig.7](app/src/main/assets/build_entrevoisins.png)
+___
+
+
 ## Run project
 
-  * Add an Virtual Device Android
+  1. Add an Virtual Device Android
     
 If You don't have Your Android device,
 in AVD Manager You can created the emulator if device like phone or tablet or others according to Your need.
@@ -54,19 +65,15 @@ in AVD Manager You can created the emulator if device like phone or tablet or ot
 ___
 More information You can find in official documentation: ['Build and run your app'](https://developer.android.com/studio/run)
 
-  * Run project
+
+  2. Run project
     
-By clicking the 'Run' method in Android Studio You start simulation of App witch one You work on.
+By clicking the 'Run' method in Android Studio You start simulation of Your App,
+on the emulator of Your choice.
 
-![Fig.6](app/src/main/assets/run.jpg)
+![Fig.6](app/src/main/assets/run_entrevoisins.png)
 ___
-
-## Build project
 
 Wen Your work is don, and everyone is satisfy, it's time to publish Your app.
 Here below is path to start build of APK witch can by publish.
-
-![Fig.7](app/src/main/assets/build_compile.jpg)
-___
-
 For more information, please check official site : ['Publish your app'](https://developer.android.com/studio/publish)
