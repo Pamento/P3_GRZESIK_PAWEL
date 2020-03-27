@@ -44,7 +44,8 @@ ___
 
 
 ## Run project
-    * 1. Add an Virtual Device Android
+
+  * 1. Add an Virtual Device Android
     
 If You don't have Your Android device,
 in AVD Manager You can created the emulator if device like phone or tablet or others according to Your need.
@@ -53,7 +54,7 @@ in AVD Manager You can created the emulator if device like phone or tablet or ot
 ___
 More information You can find in official documentation: ['Build and run your app'](https://developer.android.com/studio/run)
 
-    * 2. Run project
+  * 2. Run project
     
 By clicking the 'Run' method in Android Studio You start simulation of App witch one You work on.
 
