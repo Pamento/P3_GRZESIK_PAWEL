@@ -2,6 +2,7 @@
 package com.openclassrooms.entrevoisins.neighbour_list;
 
 import android.support.test.espresso.contrib.RecyclerViewActions;
+import android.support.test.espresso.contrib.ViewPagerActions;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
@@ -89,7 +90,14 @@ public class NeighboursListTest {
      */
     @Test
     public void myNeighboursFavoritesList_has_only_favorites() {
-        onView(nthChildOf(withId(R.id.container), 1))
-                .check(matches(isDisplayed()));
+        // get second view from pagerView, but it's not work has wanted.
+//        onView(nthChildOf(withId(R.id.container), 1))
+//                .check(matches(isDisplayed()));
+
+        onView(withId(R.id.container))
+                .perform(ViewPagerActions.scrollRight());
+
+        onView(allOf(withId(R.id.list_neighbours), isDisplayed()))
+                .check(withItemCount(3));
     }
 }
