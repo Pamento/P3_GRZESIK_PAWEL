@@ -28,30 +28,44 @@ If You need added the git tool in Your local device,
 You can find some information how to do it in [this page on StackOverflow](https://stackoverflow.com/questions/37093723/how-to-add-an-android-studio-project-to-github/44788350).
 
 ### 2. ... by download an Zip file
-___
+
+After downland zip file, Your unZip them in folder of Your choice and then open it.
+
 ![Fig.3](app/src/main/assets/by_zip.jpg)
 ___
 
 
 ## Open project
-___
+
+By click on File->Open You can get the project form folder created in previous action.
+
 ![Fig.4](app/src/main/assets/open_project.jpg)
 ___
 
 
 ## Run project
-1. Add an Virtual Device Android
-___
+    * 1. Add an Virtual Device Android
+    
+If You don't have Your Android device,
+in AVD Manager You can created the emulator if device like phone or tablet or others according to Your need.
+
 ![Fig.5](app/src/main/assets/set_emulator.jpg)
 ___
+More information You can find in official documentation: ['Build and run your app'](https://developer.android.com/studio/run)
 
-2. Run project
-___
+    * 2. Run project
+    
+By clicking the 'Run' method in Android Studio You start simulation of App witch one You work on.
+
 ![Fig.6](app/src/main/assets/run.jpg)
 ___
 
 ## Build project
-___
+
+Wen Your work is don, and everyone is satisfy, it's time to publish Your app.
+Here below is path to start build of APK witch can by publish.
+
 ![Fig.7](app/src/main/assets/build_compile.jpg)
 ___
-* * * 
+
+For more information, please check official site : ['Publish your app'](https://developer.android.com/studio/publish)
