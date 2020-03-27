@@ -27,7 +27,7 @@ After following the instruction in the popup windows.
 In case you need to add the git tool in your local device,
 you can find some more information in [this page on StackOverflow](https://stackoverflow.com/questions/37093723/how-to-add-an-android-studio-project-to-github/44788350).
 
-### 2. ... by download an Zip file
+### 2. ... by downloading Zip file
 
 After downloading zip file, you unZip it in the chosen folder and open it in Android Studio. 
 
@@ -35,7 +35,7 @@ After downloading zip file, you unZip it in the chosen folder and open it in And
 ___
 
 
-## Open project
+## Open the project
 
 By clicking on File->Open you get the project form folder created in the previous step.
 
@@ -43,7 +43,7 @@ By clicking on File->Open you get the project form folder created in the previou
 ___
 
 
-## Build project
+## Build the project
 
 When you want to see the simulated work done,
 first, you build the project by clicking on the button, as you see below.
@@ -56,7 +56,7 @@ ___
 
 ## Run the project
 
-  1. Add an Virtual Device Android
+  1. Add a Virtual Device Android
     
 If you do not have any Android device,
 create your emulator in AVD Manager.
