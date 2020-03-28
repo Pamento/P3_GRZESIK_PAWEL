@@ -79,18 +79,9 @@ public class NeighbourFragment extends Fragment implements MyNeighbourRecyclerVi
             mNeighbours = mApiService.getNeighbours();
             mRecyclerView.setAdapter(new MyNeighbourRecyclerViewAdapter(mNeighbours, this));
         } else {
-            mNeighbours = getFavoritesNeighboursList(mApiService.getNeighbours());
+            mNeighbours = mApiService.getFavoritesNeighbours();
             mRecyclerView.setAdapter(new MyNeighbourRecyclerViewAdapter(mNeighbours, this));
         }
-    }
-
-    /**
-     * The function: getFavoritesNeighboursList filter the Neighbours global list by favorites.
-     */
-    @RequiresApi(api = Build.VERSION_CODES.N)
-    private List<Neighbour> getFavoritesNeighboursList(List<Neighbour> neighbours) {
-        return neighbours.stream()
-                .filter(Neighbour::isFavorite).collect(Collectors.toList());
     }
 
     /**
