@@ -23,13 +23,13 @@ public interface NeighbourApiService {
 
     /**
      * Deletes a neighbour
-     * @param neighbour
+     * @param neighbour vehicle a object to delete
      */
     void deleteNeighbour(Neighbour neighbour);
 
     /**
      * Create a neighbour
-     * @param neighbour
+     * @param neighbour according to model: 'Neighbour'
      */
     void createNeighbour(Neighbour neighbour);
 }

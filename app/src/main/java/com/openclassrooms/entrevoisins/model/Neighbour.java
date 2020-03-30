@@ -16,7 +16,7 @@ public class Neighbour {
     /** Avatar */
     private String avatarUrl;
 
-    /** Adress */
+    /** Address */
     private String address;
 
     /** Phone number */
@@ -30,9 +30,14 @@ public class Neighbour {
 
     /**
      * Constructor
-     * @param id
-     * @param name
-     * @param avatarUrl
+     * @param id of neighbour
+     * @param name of neighbour
+     * @param avatarUrl image of neighbour
+     * @param address of neighbour
+     * @param phoneNumber of neighbour
+     * @param aboutMe represent text description added by the neighbour hem self
+     * @param isFavorite indicate if take part of favorites neighbours list
+     *                   it 'false' at moment of creation of new neighbour
      */
     public Neighbour(long id, String name, String avatarUrl, String address,
                      String phoneNumber, String aboutMe, boolean isFavorite) {

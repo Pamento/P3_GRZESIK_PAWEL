@@ -43,7 +43,7 @@ public class AboutSingleNeighbourActivity extends AppCompatActivity implements V
 
     private Neighbour mNeighbour;
     public static final String EXTRA_NEIGHBOUR = "com.openclassrooms.entrevoisins.ui.neighbour_list.EXTRA_NEIGHBOUR";
-    String mNeighbourName; // for toolbar
+    String mNeighbourName; // for toolbar and across whole class AboutSingleNeighbourActivity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +57,16 @@ public class AboutSingleNeighbourActivity extends AppCompatActivity implements V
         this.configureDesign();
     }
 
+    /**
+     * Fill out the elements of the activity has present the detail about single neighbour
+     * his:
+     * mNeighbourToolbarImageView: avatar added by Glide(android extension)
+     * mNeighbourName: name displayed in toolbar and in first ViewCard
+     * physical address
+     * phone number
+     * facebook address
+     * description about him self
+     */
     void configureDesign() {
         // fill
         mNeighbourName = getIntent().getStringExtra(EXTRA_NEIGHBOUR);
@@ -66,6 +76,7 @@ public class AboutSingleNeighbourActivity extends AppCompatActivity implements V
             if(n.getName().equals(mNeighbourName)) mNeighbour = n;
         }
 
+        // style for CardView: add corner Radius
         mCardView1.setRadius(12);
         mCardView2.setRadius(12);
         Glide.with(this).load(mNeighbour.getAvatarUrl())
@@ -83,6 +94,10 @@ public class AboutSingleNeighbourActivity extends AppCompatActivity implements V
         this.mNeighbourAboutTextView.setText(mNeighbour.getAboutMe());
     }
 
+    /**
+     * Click to switch between favorite or non favorite state of neighbour
+     * @param view not used
+     */
     @Override
     @OnClick(R.id.ab_neighbour_ic_favorite)
     public void onClick(View view) {
@@ -94,6 +109,12 @@ public class AboutSingleNeighbourActivity extends AppCompatActivity implements V
         setFloatActiveButtonIcon();
     }
 
+    /**
+     * Manage the FloatingActionButton with sign of the favorite
+     *
+     * empty star if is not a favorite neighbour
+     * full star if it is a favorite neighbour
+     */
     void setFloatActiveButtonIcon() {
         FloatingActionButton mFloatActionButton = findViewById(R.id.ab_neighbour_ic_favorite);
         if (mNeighbour.isFavorite()) {

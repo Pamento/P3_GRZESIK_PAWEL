@@ -14,8 +14,8 @@ public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
 
     /**
      * getItem is called to instantiate the fragment for the given page.
-     * @param position
-     * @return
+     * @param position of page in ViewPager
+     * @return new instance for each call has new page
      */
     @Override
     public Fragment getItem(int position) {
@@ -25,22 +25,10 @@ public class ListNeighbourPagerAdapter extends FragmentPagerAdapter {
 
     /**
      * get the number of pages
-     * @return
+     * @return number of pages in ViewPager
      */
     @Override
     public int getCount() {
         return 2;
     }
-
-//    @Override
-//    public void notifyDataSetChanged() {
-//        super.notifyDataSetChanged();
-//    }
-//
-//    @Override
-//    public int getItemPosition(@NonNull Object object) {
-//        Log.d(TAG, "getItemPosition: ");
-//        //return super.getItemPosition(object);
-//        return POSITION_NONE;
-//    }
 }

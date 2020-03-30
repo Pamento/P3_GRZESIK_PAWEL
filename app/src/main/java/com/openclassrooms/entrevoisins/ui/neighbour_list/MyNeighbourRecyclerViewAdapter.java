@@ -69,7 +69,7 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
         /**
          * Add onClickListener on single view
          *
-         * @param view
+         * @param view of ViewHolder, single item on RecyclerView( NeighboursList)
          */
         ViewHolder(View view, OnNeighbourListener onNeighbourListener) {
             super(view);
@@ -81,7 +81,7 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
         /**
          * implements the @method OnClickListener and logic to do after click
          *
-         * @param view
+         * @param view not used
          */
         @Override
         public void onClick(View view) {

@@ -57,7 +57,7 @@ public class NeighboursListTest {
 
 
     @Rule
-    public ActivityTestRule<ListNeighbourActivity> mActivityRule = new ActivityTestRule(ListNeighbourActivity.class);
+    public ActivityTestRule<ListNeighbourActivity> mActivityRule = new ActivityTestRule<>(ListNeighbourActivity.class);
 
     @Before
     public void setUp() {

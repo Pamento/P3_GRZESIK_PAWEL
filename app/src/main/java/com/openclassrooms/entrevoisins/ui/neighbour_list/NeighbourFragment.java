@@ -9,7 +9,6 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,7 +24,6 @@ import org.greenrobot.eventbus.Subscribe;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 
 public class NeighbourFragment extends Fragment implements MyNeighbourRecyclerViewAdapter.OnNeighbourListener {
@@ -63,7 +61,7 @@ public class NeighbourFragment extends Fragment implements MyNeighbourRecyclerVi
         mRecyclerView = (RecyclerView) view;
         mRecyclerView.setLayoutManager(new LinearLayoutManager(context));
         mRecyclerView.addItemDecoration(new DividerItemDecoration(Objects.requireNonNull(getContext()), DividerItemDecoration.VERTICAL));
-
+        // for each position is created new instance of NeighbourFragment
         int position = Objects.requireNonNull(getArguments()).getInt(KEY_POSITION, 0);
         initList(position);
         return view;
@@ -89,16 +87,18 @@ public class NeighbourFragment extends Fragment implements MyNeighbourRecyclerVi
      * Added to page in during instantiation of fragment.
      * @return integer, the number of page.
      */
-    private int getPageFromPager() {
+    private int getPageFromViewPager() {
         NeighbourFragment nf = this;
-        return (Integer) nf.getArguments().get(KEY_POSITION);
+        int page = 0;
+        if (nf.getArguments() != null) page = nf.getArguments().getInt(KEY_POSITION);
+        return page;
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public void onResume() {
         super.onResume();
-        int pos = getPageFromPager();
+        int pos = getPageFromViewPager();
         initList(pos);
     }
 
@@ -121,7 +121,7 @@ public class NeighbourFragment extends Fragment implements MyNeighbourRecyclerVi
     @Subscribe
     public void onDeleteNeighbour(DeleteNeighbourEvent event) {
         mApiService.deleteNeighbour(event.neighbour);
-        int pos = getPageFromPager();
+        int pos = getPageFromViewPager();
         initList(pos);
     }
 

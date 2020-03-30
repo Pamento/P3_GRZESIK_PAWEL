@@ -35,6 +35,7 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
 
     /**
      * {@inheritDoc}
+     * @param neighbour
      */
     @Override
     public void deleteNeighbour(Neighbour neighbour) {
