@@ -46,7 +46,7 @@ import static com.openclassrooms.entrevoisins.utils.RecyclerViewEachItemAssertio
 @RunWith(AndroidJUnit4.class)
 public class NeighboursListTest {
 
-    private static int ITEMS_COUNT = 12;
+    private int ITEMS_COUNT;
     /**
      * the {@link android.support.v7.widget.RecyclerView}'s resource id
      */
@@ -57,8 +57,7 @@ public class NeighboursListTest {
 
 
     @Rule
-    public ActivityTestRule<ListNeighbourActivity> mActivityRule =
-            new ActivityTestRule(ListNeighbourActivity.class);
+    public ActivityTestRule<ListNeighbourActivity> mActivityRule = new ActivityTestRule(ListNeighbourActivity.class);
 
     @Before
     public void setUp() {
@@ -66,6 +65,7 @@ public class NeighboursListTest {
         assertThat(activity, notNullValue());
         // Setup ApiService for do some test on Favorites list of neighbours.
         NeighbourApiService mApiService = DI.getNeighbourApiService();
+        this.ITEMS_COUNT = mApiService.getNeighbours().size();
         this.mFavoritesList = mApiService.getFavoritesNeighbours();
         this.FAVORITES_COUNT = mFavoritesList.size();
     }
@@ -110,7 +110,7 @@ public class NeighboursListTest {
         // For each element of the list of favorites neighbours check if match that one who is displayed
         for (int i = 0; i < FAVORITES_COUNT; i++) {
             String neighbourName = mFavoritesList.get(i).getName();
-            onView( allOf(withId(this.resId), isDisplayed()))
+            onView(allOf(withId(this.resId), isDisplayed()))
                     .perform(RecyclerViewActions.scrollToPosition(i))
                     .check(matches(atPosition(i, hasDescendant(withText(neighbourName)))));
         }

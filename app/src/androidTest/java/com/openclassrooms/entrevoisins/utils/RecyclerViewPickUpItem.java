@@ -8,6 +8,9 @@ import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 
+/**
+ * Helper for pik up the item from RecyclerView list by defined position
+ */
 public class RecyclerViewPickUpItem {
 
     public static Matcher<View> childAtPosition(
