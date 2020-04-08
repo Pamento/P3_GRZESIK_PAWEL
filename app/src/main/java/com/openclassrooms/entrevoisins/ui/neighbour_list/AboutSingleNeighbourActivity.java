@@ -103,10 +103,8 @@ public class AboutSingleNeighbourActivity extends AppCompatActivity implements V
     public void onClick(View view) {
         if (!mNeighbour.isFavorite()) {
             mApiService.favoriteStateOfNeighbour(mNeighbour,true);
-            //mNeighbour.setFavorite(true);
         } else {
             mApiService.favoriteStateOfNeighbour(mNeighbour,false);
-            //mNeighbour.setFavorite(false);
         }
         setFloatActiveButtonIcon();
     }
