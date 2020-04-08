@@ -22,6 +22,11 @@ public interface NeighbourApiService {
     List<Neighbour> getFavoritesNeighbours();
 
     /**
+     * Change the state of neighbour if it's marque like favorite or not
+     */
+    void favoriteStateOfNeighbour(Neighbour neighbour, boolean isFavorite);
+
+    /**
      * Deletes a neighbour
      * @param neighbour vehicle a object to delete
      */

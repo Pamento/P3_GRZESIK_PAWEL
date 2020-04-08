@@ -43,7 +43,8 @@ public class AboutSingleNeighbourActivity extends AppCompatActivity implements V
 
     private Neighbour mNeighbour;
     public static final String EXTRA_NEIGHBOUR = "com.openclassrooms.entrevoisins.ui.neighbour_list.EXTRA_NEIGHBOUR";
-    String mNeighbourName; // for toolbar and across whole class AboutSingleNeighbourActivity
+    private String mNeighbourName; // for toolbar and across whole class AboutSingleNeighbourActivity
+    private NeighbourApiService mApiService = DI.getNeighbourApiService();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +71,6 @@ public class AboutSingleNeighbourActivity extends AppCompatActivity implements V
     void configureDesign() {
         // fill
         mNeighbourName = getIntent().getStringExtra(EXTRA_NEIGHBOUR);
-        NeighbourApiService mApiService = DI.getNeighbourApiService();
         List<Neighbour> neighbours = mApiService.getNeighbours();
         for (Neighbour n : neighbours) {
             if(n.getName().equals(mNeighbourName)) mNeighbour = n;
@@ -102,9 +102,11 @@ public class AboutSingleNeighbourActivity extends AppCompatActivity implements V
     @OnClick(R.id.ab_neighbour_ic_favorite)
     public void onClick(View view) {
         if (!mNeighbour.isFavorite()) {
-            mNeighbour.setFavorite(true);
+            mApiService.favoriteStateOfNeighbour(mNeighbour,true);
+            //mNeighbour.setFavorite(true);
         } else {
-            mNeighbour.setFavorite(false);
+            mApiService.favoriteStateOfNeighbour(mNeighbour,false);
+            //mNeighbour.setFavorite(false);
         }
         setFloatActiveButtonIcon();
     }
