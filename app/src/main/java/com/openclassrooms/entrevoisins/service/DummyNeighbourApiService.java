@@ -35,8 +35,6 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
 
     /**
      * {@inheritDoc}
-     * @param neighbour the single neighbour form list for witch one must by changed
-     *                  his favorite state
      */
     @Override
     public void favoriteStateOfNeighbour(Neighbour neighbour, boolean isFavorite) {
@@ -45,9 +43,6 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
                 n.setFavorite(isFavorite);
             }
         }
-        System.out.println("######################################################");
-        System.out.println("neighbour__ID__"+neighbour.getId());
-        System.out.println("######################################################");
     }
 
     /**
