@@ -23,6 +23,8 @@ public interface NeighbourApiService {
 
     /**
      * Change the state of neighbour if it's marque like favorite or not
+     * @param neighbour the object which has be changed
+     * @param isFavorite boolean which cause the change
      */
     void favoriteStateOfNeighbour(Neighbour neighbour, boolean isFavorite);
 

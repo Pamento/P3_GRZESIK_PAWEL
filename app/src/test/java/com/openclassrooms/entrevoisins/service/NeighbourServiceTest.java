@@ -14,6 +14,8 @@ import java.util.Objects;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
 
 /**
  * Unit test on Neighbour service
@@ -47,5 +49,22 @@ public class NeighbourServiceTest {
         List<Neighbour> favorites = service.getFavoritesNeighbours();
         assertThat(favorites, IsIterableContainingInAnyOrder.containsInAnyOrder(Objects.requireNonNull(DummyNeighbourGenerator.DUMMY_NEIGHBOURS.stream()
                 .filter(Neighbour::isFavorite).toArray())));
+    }
+
+    @Test
+    public void changeFavoriteState() {
+        // Get first neighbour form list
+        boolean neighbour1 = service.getNeighbours().get(0).isFavorite();
+        String neighbour1Str = Boolean.toString(neighbour1);
+
+        // Change the favorite state of this neighbour via Service function
+        service.favoriteStateOfNeighbour(service.getNeighbours().get(0), false);
+
+        // Get again the same neighbour
+        boolean neighbour2 = service.getNeighbours().get(0).isFavorite();
+        String neighbour2Str = Boolean.toString(neighbour2);
+
+        // Must not equal the neighbor state of its first state
+        assertThat(neighbour2Str, is(not(neighbour1Str)));
     }
 }
